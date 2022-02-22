@@ -29,8 +29,8 @@ public class MainController {
     }
 
     @RequestMapping(value = "/" , method = RequestMethod.POST)
-    public String PostEnter(@RequestParam("username") String username , @RequestParam("lastname") String lastname , ModelMap model ) {
-        userService.addUser(new User(username , lastname));
+    public String PostEnter(@RequestParam("username") String username , ModelMap model ) {
+        userService.addUser(new User(username));
         List<User> users = userService.getUsers();
         model.addAttribute("users", users);
         return "index";
@@ -54,5 +54,12 @@ public class MainController {
         model.addAttribute("user" , user);
         return "user";
 
+    }
+    @RequestMapping(value = "delete/{id}" , method = RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") Long id , ModelMap model){
+
+        userService.delete(userService.getUserById(id));
+
+        return "delete";
     }
 }

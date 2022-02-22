@@ -11,10 +11,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-
     @Query(value = "from User")
     List<User> getUsers();
-
 
     User getUserById(Long id);
 

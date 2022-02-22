@@ -16,12 +16,11 @@ public class User {
     private long id;
     @Column
     private String name;
-    @Column
-    private String last_name;
 
-    public User(String name, String last_name) {
+
+    public User(String name) {
         this.name = name;
-        this.last_name = last_name;
+
     }
     public User(){
 
@@ -43,11 +42,4 @@ public class User {
         this.name = name;
     }
 
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
 }
